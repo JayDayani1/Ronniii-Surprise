@@ -1,0 +1,758 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>For Ronniiiiii 💕</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Poppins:wght@300;400;500;600&display=swap"
+    rel="stylesheet"
+  />
+  <style>
+    /* ── Reset ── */
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --red:       #C8102E;
+      --red-light: #E8314E;
+      --cream:     #FFF8F0;
+      --cream-dk:  #F5E6D3;
+      --pink:      #FFB6C1;
+      --pink-deep: #FF8FA3;
+      --rose:      #B76E79;
+      --rose-dk:   #8B3A4A;
+      --maroon:    #4A1525;
+      --brown:     #6B4226;
+      --gold:      #D4AF37;
+    }
+
+    html  { scroll-behavior: smooth; }
+    body  {
+      font-family: 'Poppins', sans-serif;
+      background: var(--cream);
+      color: #3a2a2a;
+      overflow-x: hidden;
+    }
+
+    /* ── Utility: fade-in on scroll ── */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(32px);
+      transition: opacity .85s ease, transform .85s ease;
+    }
+    .fade-in.visible { opacity: 1; transform: translateY(0); }
+
+    /* ── Music toggle ── */
+    #music-btn {
+      position: fixed;
+      top: 18px; right: 18px;
+      z-index: 999;
+      width: 50px; height: 50px;
+      border-radius: 50%;
+      border: none;
+      background: rgba(199,16,46,.88);
+      color: #fff;
+      font-size: 1.3rem;
+      cursor: pointer;
+      box-shadow: 0 4px 18px rgba(199,16,46,.4);
+      transition: transform .25s, box-shadow .25s;
+      backdrop-filter: blur(6px);
+    }
+    #music-btn:hover { transform: scale(1.12); box-shadow: 0 6px 24px rgba(199,16,46,.55); }
+
+    /* ══════════════════════════════════════
+       SECTION 1 — HERO
+    ══════════════════════════════════════ */
+    #hero {
+      min-height: 100vh;
+      background: linear-gradient(150deg, #FFF0F5 0%, #FFE2EC 45%, #FDDDE6 100%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+      padding: 60px 24px 80px;
+    }
+
+    .floaties-wrap {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      overflow: hidden;
+    }
+    .floatie {
+      position: absolute;
+      top: -60px;
+      user-select: none;
+      animation: fall linear infinite;
+    }
+    @keyframes fall {
+      0%   { transform: translateY(-60px) rotate(0deg);   opacity: .85; }
+      100% { transform: translateY(110vh)  rotate(360deg); opacity: 0;   }
+    }
+
+    .hero-content { position: relative; z-index: 5; }
+
+    .hero-pill {
+      display: inline-block;
+      background: rgba(199,16,46,.1);
+      color: var(--red);
+      border: 1px solid rgba(199,16,46,.22);
+      border-radius: 50px;
+      padding: 5px 20px;
+      font-size: .78rem;
+      font-weight: 500;
+      letter-spacing: 1.8px;
+      text-transform: uppercase;
+      margin-bottom: 22px;
+    }
+
+    .hero-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(3.2rem, 11vw, 7rem);
+      color: var(--red);
+      line-height: 1.08;
+      text-shadow: 2px 4px 24px rgba(199,16,46,.18);
+      margin-bottom: 18px;
+    }
+
+    .hero-sub {
+      font-family: 'Playfair Display', serif;
+      font-style: italic;
+      font-size: clamp(1rem, 2.8vw, 1.45rem);
+      color: var(--rose);
+      font-weight: 400;
+      margin-bottom: 48px;
+    }
+
+    .scroll-hint {
+      display: inline-flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 5px;
+      color: var(--rose);
+      font-size: .72rem;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      text-decoration: none;
+      animation: bob 2.2s ease-in-out infinite;
+    }
+    .scroll-hint .arrow { font-size: 1.4rem; line-height: 1; }
+    @keyframes bob { 0%,100%{transform:translateY(0)} 50%{transform:translateY(9px)} }
+
+    /* ══════════════════════════════════════
+       SECTION 2 — LETTER
+    ══════════════════════════════════════ */
+    #message {
+      background: linear-gradient(180deg, #FFF8F0 0%, #FFF2F5 100%);
+      padding: 110px 24px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .sec-label {
+      font-size: .75rem;
+      text-transform: uppercase;
+      letter-spacing: 2.5px;
+      color: var(--red);
+      font-weight: 500;
+      text-align: center;
+      margin-bottom: 12px;
+    }
+    .sec-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2rem, 5vw, 3rem);
+      color: var(--rose-dk);
+      text-align: center;
+      margin-bottom: 52px;
+    }
+
+    .letter-wrap {
+      max-width: 760px;
+      width: 100%;
+    }
+
+    .letter-card {
+      background: #fff;
+      border-radius: 22px;
+      padding: 52px 58px;
+      box-shadow:
+        0 2px 0   rgba(199,16,46,.12),
+        0 20px 60px rgba(183,110,121,.14),
+        0  4px 20px rgba(183,110,121,.07);
+      border-top: 5px solid var(--red);
+      position: relative;
+    }
+    .letter-card::before {
+      content: '❤️';
+      position: absolute;
+      top: -20px;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 2.2rem;
+      background: #fff;
+      padding: 0 10px;
+      line-height: 1;
+    }
+
+    .letter-card p {
+      font-size: 1.05rem;
+      line-height: 1.92;
+      color: #4a3535;
+      margin-bottom: 22px;
+    }
+    .letter-card p:last-of-type { margin-bottom: 0; }
+    .letter-card strong { color: var(--red); font-weight: 600; }
+    .letter-card em { color: var(--rose-dk); }
+
+    .letter-sig {
+      margin-top: 34px;
+      text-align: right;
+      font-family: 'Playfair Display', serif;
+      font-style: italic;
+      font-size: 1.25rem;
+      color: var(--red);
+    }
+
+    @media (max-width: 600px) {
+      .letter-card { padding: 36px 28px; }
+    }
+
+    /* ══════════════════════════════════════
+       SECTION 3 — REASONS I LOVE YOU
+    ══════════════════════════════════════ */
+    #reasons {
+      background: linear-gradient(135deg, #FFF0F3 0%, #FFE5EC 100%);
+      padding: 110px 24px;
+    }
+
+    #reasons .sec-title,
+    #reasons .sec-label { text-align: center; }
+
+    .reasons-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
+      gap: 22px;
+      max-width: 1040px;
+      margin: 0 auto;
+    }
+
+    /* flip cards */
+    .flip-card {
+      height: 205px;
+      perspective: 1100px;
+      cursor: pointer;
+    }
+    .flip-inner {
+      width: 100%; height: 100%;
+      position: relative;
+      transform-style: preserve-3d;
+      transition: transform .72s cubic-bezier(.4,.2,.2,1);
+    }
+    .flip-card:hover .flip-inner,
+    .flip-card.flipped .flip-inner { transform: rotateY(180deg); }
+
+    .flip-front, .flip-back {
+      position: absolute;
+      inset: 0;
+      backface-visibility: hidden;
+      border-radius: 18px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 22px;
+      text-align: center;
+    }
+
+    .flip-front {
+      background: #fff;
+      box-shadow: 0 8px 28px rgba(183,110,121,.15);
+      border: 2px solid rgba(199,16,46,.09);
+    }
+    .flip-front .num {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.6rem;
+      color: var(--red);
+      line-height: 1;
+    }
+    .flip-front .f-heart { font-size: 1.7rem; margin-top: 4px; }
+    .flip-front .f-hint {
+      font-size: .7rem;
+      color: var(--rose);
+      text-transform: uppercase;
+      letter-spacing: 1.2px;
+      margin-top: 9px;
+    }
+
+    .flip-back {
+      background: linear-gradient(135deg, var(--red) 0%, #E8314E 100%);
+      color: #fff;
+      transform: rotateY(180deg);
+      box-shadow: 0 8px 28px rgba(199,16,46,.28);
+    }
+    .flip-back p { font-size: .9rem; line-height: 1.55; }
+
+    /* ══════════════════════════════════════
+       SECTION 4 — TIM HORTONS TRIBUTE
+    ══════════════════════════════════════ */
+    #tribute {
+      background: #fff;
+      padding: 110px 24px;
+      text-align: center;
+    }
+
+    .tribute-inner { max-width: 720px; margin: 0 auto; }
+
+    .coffee-float {
+      font-size: 5.5rem;
+      display: block;
+      margin: 0 auto 18px;
+      animation: coffeebob 2.4s ease-in-out infinite;
+      filter: drop-shadow(0 6px 14px rgba(107,66,38,.25));
+    }
+    @keyframes coffeebob {
+      0%,100% { transform: translateY(0) rotate(-3deg); }
+      50%      { transform: translateY(-12px) rotate(3deg); }
+    }
+
+    /* steam lines above cup */
+    .steam {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      margin-bottom: 0;
+      height: 36px;
+    }
+    .steam span {
+      display: block;
+      width: 4px;
+      border-radius: 4px;
+      background: linear-gradient(to top, rgba(199,16,46,.35), transparent);
+      animation: rise 1.8s ease-in-out infinite;
+    }
+    .steam span:nth-child(1) { height: 26px; animation-delay: 0s;    }
+    .steam span:nth-child(2) { height: 36px; animation-delay: .35s;  }
+    .steam span:nth-child(3) { height: 22px; animation-delay: .7s;   }
+    @keyframes rise {
+      0%,100% { transform: translateY(0) scaleX(1); opacity: .6; }
+      50%      { transform: translateY(-8px) scaleX(1.2); opacity: 1; }
+    }
+
+    .trophy-badge {
+      display: inline-flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 14px;
+      background: linear-gradient(135deg, #FFF8F0, #FFE8D6);
+      border: 3px solid var(--red);
+      border-radius: 22px;
+      padding: 32px 52px;
+      margin: 30px 0 44px;
+      box-shadow: 0 14px 45px rgba(199,16,46,.12);
+    }
+    .trophy-emoji {
+      font-size: 3.8rem;
+      animation: wobble 3s ease-in-out infinite;
+    }
+    @keyframes wobble {
+      0%,100% { transform: rotate(-6deg) scale(1); }
+      50%      { transform: rotate(6deg) scale(1.06); }
+    }
+    .trophy-badge h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.55rem;
+      color: var(--red);
+    }
+    .trophy-badge p { font-size: .9rem; color: var(--brown); max-width: 360px; line-height: 1.6; }
+
+    .fun-stats {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 22px;
+    }
+    .stat {
+      background: linear-gradient(135deg, #FFF0F3, #FFE4EC);
+      border-radius: 18px;
+      padding: 26px 34px;
+      min-width: 140px;
+      box-shadow: 0 4px 16px rgba(183,110,121,.1);
+      text-align: center;
+    }
+    .stat-num {
+      display: block;
+      font-family: 'Playfair Display', serif;
+      font-size: 2rem;
+      color: var(--red);
+    }
+    .stat-lbl {
+      display: block;
+      font-size: .72rem;
+      color: var(--rose);
+      text-transform: uppercase;
+      letter-spacing: 1.2px;
+      margin-top: 5px;
+    }
+
+    /* ══════════════════════════════════════
+       SECTION 5 — CLOSING
+    ══════════════════════════════════════ */
+    #closing {
+      background: linear-gradient(140deg, #200810 0%, var(--maroon) 55%, #200810 100%);
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+      padding: 100px 24px;
+    }
+
+    .closing-bg { position: absolute; inset: 0; pointer-events: none; }
+    .closing-bg span {
+      position: absolute;
+      animation: floatup linear infinite;
+      opacity: 0;
+    }
+    @keyframes floatup {
+      0%   { transform: translateY(105vh) scale(.6); opacity: 0; }
+      8%   { opacity: .65; }
+      92%  { opacity: .45; }
+      100% { transform: translateY(-8vh) scale(1.3); opacity: 0; }
+    }
+
+    .closing-content { position: relative; z-index: 5; max-width: 720px; }
+
+    .closing-pill {
+      display: inline-block;
+      color: rgba(255,182,193,.65);
+      font-size: .75rem;
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      margin-bottom: 28px;
+      border: 1px solid rgba(255,182,193,.22);
+      padding: 5px 18px;
+      border-radius: 50px;
+    }
+
+    .closing-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2.3rem, 7.5vw, 4.8rem);
+      color: var(--pink);
+      line-height: 1.2;
+      margin-bottom: 14px;
+      animation: glow 3.2s ease-in-out infinite;
+    }
+    @keyframes glow {
+      0%,100% { text-shadow: 0 0 40px rgba(255,100,130,.38), 0 0 80px rgba(255,100,130,.18); }
+      50%      { text-shadow: 0 0 64px rgba(255,100,130,.7), 0 0 130px rgba(255,100,130,.38); }
+    }
+
+    .big-heart {
+      display: block;
+      font-size: 5.5rem;
+      margin: 28px auto;
+      animation: heartbeat 1.3s ease-in-out infinite;
+    }
+    @keyframes heartbeat {
+      0%,100% { transform: scale(1); }
+      14%      { transform: scale(1.22); }
+      28%      { transform: scale(1); }
+      42%      { transform: scale(1.16); }
+      56%      { transform: scale(1); }
+    }
+
+    .closing-note {
+      font-family: 'Playfair Display', serif;
+      font-style: italic;
+      font-size: clamp(.95rem, 2.5vw, 1.15rem);
+      color: rgba(255,182,193,.6);
+      line-height: 1.8;
+      margin-top: 14px;
+    }
+
+    /* ── Firework sparks ── */
+    .spark {
+      position: absolute;
+      width: 6px; height: 6px;
+      border-radius: 50%;
+      pointer-events: none;
+      animation: spark-fly linear forwards;
+    }
+    @keyframes spark-fly {
+      0%   { transform: translate(0,0) scale(1); opacity: 1; }
+      100% { transform: translate(var(--tx), var(--ty)) scale(0); opacity: 0; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ── Music toggle ── -->
+<button id="music-btn" title="Toggle music">🎵</button>
+<audio id="bg-music" loop>
+  <!-- Drop a music.mp3 file in the same folder to enable background music -->
+  <source src="music.mp3" type="audio/mpeg" />
+</audio>
+
+<!-- ════════════════════════════════
+     HERO
+════════════════════════════════ -->
+<section id="hero">
+  <div class="floaties-wrap" id="floaties"></div>
+  <div class="hero-content">
+    <div class="hero-pill fade-in visible">✨ Just for you, tonight</div>
+    <h1 class="hero-title fade-in visible">Hey Ronniiiiii 💕</h1>
+    <p class="hero-sub fade-in visible">
+      You deserve every bit of love in the world —<br />especially today.
+    </p>
+    <a href="#message" class="scroll-hint fade-in visible">
+      <span class="arrow">↓</span>
+      <span>Keep reading</span>
+    </a>
+  </div>
+</section>
+
+<!-- ════════════════════════════════
+     LETTER
+════════════════════════════════ -->
+<section id="message">
+  <p class="sec-label fade-in">A note from your person</p>
+  <h2 class="sec-title fade-in">For the strongest woman I know 🌹</h2>
+  <div class="letter-wrap">
+    <div class="letter-card fade-in">
+      <p>Hey, my Ronniiiiii.</p>
+      <p>
+        I know today was hard. I know you walked into that rush hour and carried every
+        mistake, every moment of chaos, every stressed-out second on your shoulders —
+        because that's what you do. That's who you are.
+      </p>
+      <p>
+        But I need you to hear this: <strong>you are absolutely incredible.</strong>
+        Managing a team is never easy — and doing it with the heart and dedication
+        you pour into it every single day is something truly rare. The fact that
+        today felt heavy just means you care deeply. And caring deeply is one of the
+        most beautiful things about you.
+      </p>
+      <p>
+        Tough days don't define you, baby. <em>Your strength does.</em> Your patience
+        does. The way you never give up even when everything is falling apart around
+        you — <em>that</em> defines you.
+      </p>
+      <p>
+        I see how hard you work. I see the long shifts, the stress you carry quietly,
+        the weight you never complain about. And I want you to know: <strong>I am so,
+        so proud of you.</strong> Not just today — every single day.
+      </p>
+      <p>
+        Tonight, let me be the one who takes care of you. You don't have to be strong
+        right now. You just have to be my Ronniiiiii. 💕
+      </p>
+      <div class="letter-sig">— Always yours 🌹</div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════
+     REASONS I LOVE YOU
+════════════════════════════════ -->
+<section id="reasons">
+  <p class="sec-label fade-in">Tap each card to reveal</p>
+  <h2 class="sec-title fade-in">Reasons I love you 💖</h2>
+  <div class="reasons-grid" id="reasons-grid"></div>
+</section>
+
+<!-- ════════════════════════════════
+     TIM HORTONS TRIBUTE
+════════════════════════════════ -->
+<section id="tribute">
+  <div class="tribute-inner">
+    <p class="sec-label fade-in">Official Recognition</p>
+    <h2 class="sec-title fade-in">A Tim Hortons Tribute ☕</h2>
+
+    <div class="steam fade-in">
+      <span></span><span></span><span></span>
+    </div>
+    <span class="coffee-float fade-in">☕</span>
+
+    <div class="trophy-badge fade-in">
+      <span class="trophy-emoji">🏆</span>
+      <h3>Best Manager in the Drive-Thru</h3>
+      <p>
+        Awarded to Het — for grace under pressure, a heart of gold, and running
+        the most important coffee shop in the entire world.
+      </p>
+    </div>
+
+    <div class="fun-stats">
+      <div class="stat fade-in">
+        <span class="stat-num">∞</span>
+        <span class="stat-lbl">Coffees Managed</span>
+      </div>
+      <div class="stat fade-in">
+        <span class="stat-num">💯</span>
+        <span class="stat-lbl">Heart Poured In</span>
+      </div>
+      <div class="stat fade-in">
+        <span class="stat-num">#1</span>
+        <span class="stat-lbl">In My Heart</span>
+      </div>
+      <div class="stat fade-in">
+        <span class="stat-num">0</span>
+        <span class="stat-lbl">Quits Given Up</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════
+     CLOSING
+════════════════════════════════ -->
+<section id="closing">
+  <div class="closing-bg" id="closing-bg"></div>
+  <div class="closing-content">
+    <span class="closing-pill fade-in">Always and forever</span>
+    <h2 class="closing-title fade-in">
+      You are my favorite person,<br />Ronniiiiii 💖
+    </h2>
+    <span class="big-heart">💗</span>
+    <p class="closing-note fade-in">
+      No matter what kind of day it was — you are loved beyond words.<br />
+      Now rest, my love. You've more than earned it. 🌙
+    </p>
+  </div>
+</section>
+
+<script>
+  /* ── Falling floaties (hero) ── */
+  const floatEmojis = ['💕','💗','💖','💝','☕','🌹','✨','💕','🌸','💞'];
+  const floatWrap   = document.getElementById('floaties');
+
+  function spawnFloatie() {
+    const el = document.createElement('span');
+    el.classList.add('floatie');
+    el.textContent = floatEmojis[Math.floor(Math.random() * floatEmojis.length)];
+    el.style.left        = Math.random() * 100 + 'vw';
+    el.style.fontSize    = (.9 + Math.random() * 1.6) + 'rem';
+    const dur            = 7 + Math.random() * 9;
+    el.style.animationDuration = dur + 's';
+    el.style.animationDelay   = (Math.random() * 4) + 's';
+    floatWrap.appendChild(el);
+    setTimeout(() => el.remove(), (dur + 5) * 1000);
+  }
+  for (let i = 0; i < 22; i++) spawnFloatie();
+  setInterval(spawnFloatie, 700);
+
+  /* ── Floating hearts (closing bg) ── */
+  const closingBg   = document.getElementById('closing-bg');
+  const bgEmojis    = ['💕','💖','💗','💝','✨','🌸'];
+
+  function spawnBgHeart() {
+    const el = document.createElement('span');
+    el.textContent = bgEmojis[Math.floor(Math.random() * bgEmojis.length)];
+    el.style.left      = Math.random() * 100 + 'vw';
+    el.style.fontSize  = (.7 + Math.random() * 1.6) + 'rem';
+    const dur          = 9 + Math.random() * 12;
+    el.style.animation = `floatup ${dur}s linear infinite`;
+    el.style.animationDelay = (Math.random() * 6) + 's';
+    closingBg.appendChild(el);
+    setTimeout(() => el.remove(), (dur + 6) * 1000);
+  }
+  for (let i = 0; i < 18; i++) spawnBgHeart();
+  setInterval(spawnBgHeart, 1100);
+
+  /* ── Fireworks on closing section ── */
+  const closingSection = document.getElementById('closing');
+  const sparkColors    = ['#FF8FA3','#FFB6C1','#C8102E','#FF6680','#FFD6DE','#FFE4EC','#fff'];
+
+  function firework(x, y) {
+    for (let i = 0; i < 18; i++) {
+      const spark = document.createElement('div');
+      spark.classList.add('spark');
+      const angle = (i / 18) * 2 * Math.PI;
+      const dist  = 60 + Math.random() * 100;
+      spark.style.setProperty('--tx', Math.cos(angle) * dist + 'px');
+      spark.style.setProperty('--ty', Math.sin(angle) * dist + 'px');
+      spark.style.left             = x + 'px';
+      spark.style.top              = y + 'px';
+      spark.style.background       = sparkColors[Math.floor(Math.random() * sparkColors.length)];
+      spark.style.animationDuration = (.8 + Math.random() * .6) + 's';
+      closingSection.appendChild(spark);
+      setTimeout(() => spark.remove(), 1600);
+    }
+  }
+
+  /* Periodic auto-fireworks */
+  function randomFirework() {
+    const rect = closingSection.getBoundingClientRect();
+    if (rect.top < window.innerHeight && rect.bottom > 0) {
+      const x = 60 + Math.random() * (closingSection.offsetWidth  - 120);
+      const y = 60 + Math.random() * (closingSection.offsetHeight - 120);
+      firework(x, y);
+    }
+  }
+  setInterval(randomFirework, 1800);
+
+  /* ── Reasons flip cards ── */
+  const reasons = [
+    "You manage chaos with grace — even on the hardest, most stressful days",
+    "Your smile is the very first thing I think about every single morning",
+    "You work harder than anyone I've ever known, and you never even realize it",
+    "You never give up — even when absolutely everything around you falls apart",
+    "You're kind to people even when they really don't deserve it",
+    "You make every ordinary moment feel like something truly magical",
+    "Your laugh is my all-time favorite sound in the entire world",
+    "You inspire me to be a better person every single day",
+    "You are the strongest, most resilient person I have ever known",
+    "You are — and always will be — home to me 🏡",
+  ];
+
+  const grid = document.getElementById('reasons-grid');
+  reasons.forEach((reason, i) => {
+    const card = document.createElement('div');
+    card.classList.add('flip-card', 'fade-in');
+    card.innerHTML = `
+      <div class="flip-inner">
+        <div class="flip-front">
+          <span class="num">${String(i + 1).padStart(2, '0')}</span>
+          <span class="f-heart">💕</span>
+          <span class="f-hint">Tap to reveal</span>
+        </div>
+        <div class="flip-back">
+          <p>${reason}</p>
+        </div>
+      </div>
+    `;
+    card.addEventListener('click', () => card.classList.toggle('flipped'));
+    grid.appendChild(card);
+  });
+
+  /* ── Scroll fade-in observer ── */
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+  }, { threshold: 0.12 });
+  document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+  /* ── Music toggle ── */
+  const audio    = document.getElementById('bg-music');
+  const musicBtn = document.getElementById('music-btn');
+  let playing    = false;
+
+  musicBtn.addEventListener('click', () => {
+    if (playing) {
+      audio.pause();
+      musicBtn.textContent = '🎵';
+    } else {
+      audio.play().catch(() => {});
+      musicBtn.textContent = '⏸️';
+    }
+    playing = !playing;
+  });
+</script>
+</body>
+</html>
